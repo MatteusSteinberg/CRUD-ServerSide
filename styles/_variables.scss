@@ -1,0 +1,20 @@
+.btn {
+    background-color: transparent;
+    display: inline;
+    padding: 15px 25px;
+    border: 2px solid rgba(0, 0, 0, 0.07);
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: 14px;
+    color: #0070f3;
+    transition: color 150ms ease, border-color 150ms ease;
+
+    &:hover,
+    &:focus,
+    &:active {
+        color: #0070f3;
+        border-color: #0070f3;
+        cursor: pointer;
+    }
+}

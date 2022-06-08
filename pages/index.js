@@ -1,17 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState } from "react"
 import Head from "next/head"
 
 // Components
-import DeleteModal from '../components/deleteModal';
-import CreateModal from '../components/createModal';
-import EditModal from '../components/editModal';
-import UserList from '../components/userList';
+import CreateModal from "../components/createModal"
+import EditModal from "../components/editModal"
+import UserList from "../components/userList"
 
 export default function Home() {
-
-    const [isDeleteOpen, setIsDeleteOpen] = useState(null);
-    const [isCreateOpen, setIsCreateOpen] = useState(null);
-    const [isEditOpen, setIsEditOpen] = useState(null);
+    const [isCreateOpen, setIsCreateOpen] = useState(null)
 
     return (
         <>
@@ -32,15 +28,13 @@ export default function Home() {
                         Create user &#43;
                     </button>
                     <div className="user-list">
-                        <UserList setIsEditOpen={setIsEditOpen} setIsDeleteOpen={setIsDeleteOpen} />
+                        <UserList />
                     </div>
                 </main>
             </div>
 
-            <DeleteModal isOpen={isDeleteOpen} setIsOpen={setIsDeleteOpen} />
+            
             <CreateModal isOpen={isCreateOpen} setIsOpen={setIsCreateOpen} />
-            <EditModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} />
-
         </>
     )
 }

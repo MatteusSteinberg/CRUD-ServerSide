@@ -13,7 +13,7 @@ const handler = nc({
 }).get(async (req, res) => {
     await dbConnect()
 
-    const users = await User.findByIdAndDelete({})
-    res.status(200).json({ success: true, data: users })
+    await User.findByIdAndDelete(req.body.id)
+    res.status(200).json({ success: true, msg: 'User deleted' })
 })
 export default handler 

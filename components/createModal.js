@@ -17,6 +17,7 @@ export default function CreateModal({ isOpen, setIsOpen }) {
             setIsError(true)
             setLoading(false)
         }
+        setIsOpen(false);
     }
     return (
         <div className={isOpen == true ? "modal createModal is-open" : "modal createModal"}>

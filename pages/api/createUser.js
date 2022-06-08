@@ -12,7 +12,7 @@ const handler = nc({
     },
 }).post(async (req, res) => {
     const { firstName, lastName, username, role } = req.body
-    console.log(req.body)
+
     await dbConnect()
 
     const user = new User({

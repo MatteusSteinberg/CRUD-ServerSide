@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
 // Components
-import DeleteModal from './deleteModal';
 import EditModal from './editModal';
 
 export default function UserList() {
@@ -49,12 +48,6 @@ export default function UserList() {
                 user={user}
                 setIsEditOpen={setIsEditOpen}
                 setIsDeleteOpen={setIsDeleteOpen}
-              />
-
-              <DeleteModal
-                isOpen={isDeleteOpen}
-                setIsOpen={setIsDeleteOpen}
-                handleDeleteUser={() => handleDeleteUser(user._id)}
               />
 
               <EditModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} userId={user._id} />

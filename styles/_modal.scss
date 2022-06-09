@@ -1,0 +1,146 @@
+.modal {
+    background-color: rgba(0, 0, 0, 0);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    left: 0;
+    top: 0;
+    z-index: -1;
+    transition: background-color 150ms ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.deleteModal {
+    }
+
+    &.createModal {
+    }
+
+    &.is-open {
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.3);
+
+        .modal-inner {
+            z-index: 2;
+            opacity: 1;
+            margin-top: 0;
+            display: block;
+        }
+    }
+
+    .modal-inner {
+        border-radius: 20px;
+        max-width: 500px;
+        width: 100%;
+        z-index: -1;
+        display: none;
+        opacity: 0;
+        margin-top: -30px;
+        background-color: #fff;
+        transition: opacity 150ms ease-in-out, margin-top 150ms ease-in-out;
+
+        .modal-container {
+            .modal-header {
+                border-bottom: 2px solid rgba(0, 0, 0, 0.07);
+                .modal-title {
+                    padding: 20px 25px;
+                    margin-top: 0;
+                    font-size: 20px;
+                    font-weight: 500;
+                    margin-bottom: 0;
+                }
+            }
+
+            .modal-body {
+                padding: 0px 25px;
+                margin: 30px 0px;
+
+                .delete-text {
+                    margin-top: 0;
+                    margin-bottom: 0;
+                }
+
+                .form-wrapper {
+                    form {
+                        label {
+                            font-size: 16px;
+                            opacity: 0.5;
+                            display: block;
+                            margin-bottom: 6px;
+                        }
+
+                        .input-field {
+                            width: 100%;
+                            padding: 10px 0px 10px 10px;
+                            font-size: 16px;
+                            border: 2px solid rgba(0, 0, 0, 0.07);
+                            border-radius: 5px;
+                            color: #181818;
+                            transition: all 150ms ease-in-out;
+                            font-family: "Work Sans", sans-serif;
+
+                            &:active,
+                            &:focus,
+                            &:focus-visible {
+                                border: 2px solid #0070f3;
+                                box-shadow: none !important;
+                                outline: none;
+                            }
+                        }
+
+                        .form-first-name,
+                        .form-last-name,
+                        .form-username,
+                        .form-role {
+                            width: 100%;
+                            position: relative;
+                            margin-top: 15px;
+                        }
+                    }
+                }
+            }
+
+            .modal-footer {
+                padding: 0px 25px 25px 25px;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+
+                .btn-modal {
+                    width: 48%;
+                    padding: 13px;
+                    transition: all 150ms ease-in-out;
+                }
+
+                .btn-confirm {
+                    background-color: #f73163;
+                    border-color: #f73163;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: transparent;
+                        border-color: #f73163;
+                        color: #f73163;
+                    }
+                }
+
+                .btn-create {
+                    background-color: #59b259;
+                    border-color: #59b259;
+                    color: #fff;
+
+                    &:hover {
+                        background-color: transparent;
+                        border-color: #59b259;
+                        color: #59b259;
+                    }
+                }
+                .btn-cancel {
+                    width: 48%;
+                    padding: 13px;
+                }
+            }
+        }
+    }
+}

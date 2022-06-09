@@ -1,8 +1,8 @@
-import React from 'react'
+import React from "react"
 
 export default function deleteModal({ isOpen, setIsOpen }) {
     return (
-        <div className={isOpen == true ? 'modal deleteModal is-open' : 'modal deleteModal'}>
+        <div className={isOpen == true ? "modal deleteModal is-open" : "modal deleteModal"}>
             <div className="modal-inner">
                 <div className="modal-container">
                     <div className="modal-header">
@@ -12,7 +12,11 @@ export default function deleteModal({ isOpen, setIsOpen }) {
                         <p className="delete-text">Are you sure to delete this user?</p>
                     </div>
                     <div className="modal-footer">
-                        <button className="btn btn-modal btn-confirm">
+                        <button
+                            className="btn btn-modal btn-confirm"
+                            onClick={() => {
+                                props.handleDeleteUser(props.user._id)
+                            }}>
                             Delete
                         </button>
                         <button className="btn btn-modal btn-cancel" onClick={(e) => setIsOpen(false)}>
@@ -21,6 +25,6 @@ export default function deleteModal({ isOpen, setIsOpen }) {
                     </div>
                 </div>
             </div>
-        </div >
+        </div>
     )
 }

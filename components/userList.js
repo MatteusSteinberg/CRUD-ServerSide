@@ -26,7 +26,9 @@ export default function UserList() {
 
     const handleDeleteUser = async (id) => {
         try {
-            const res = await axios.delete(`/api/deleteUser/${id}`)
+            const res = await axios.post(`/api/deleteUser`, {
+                id: id
+            })
             if (res.data.success) {
                 const newUser = users.filter((el) => el._id !== id)
                 setUsers(newUser)
@@ -43,7 +45,7 @@ export default function UserList() {
                     return <UserItem handleDeleteUser={() => handleDeleteUser(user._id)} key={user._id} user={user} setIsEditOpen={setIsEditOpen} setIsDeleteOpen={setIsDeleteOpen} />
                 })}
             </ul>
-            {/* <DeleteModal isOpen={isDeleteOpen} setIsOpen={setIsDeleteOpen} /> */}
+            <DeleteModal isOpen={isDeleteOpen} setIsOpen={setIsDeleteOpen} handleDeleteUser={() => handleDeleteUser(user._id)} />
             <EditModal isOpen={isEditOpen} setIsOpen={setIsEditOpen} />
         </>
     )

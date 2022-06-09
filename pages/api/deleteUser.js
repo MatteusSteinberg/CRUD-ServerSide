@@ -10,9 +10,9 @@ const handler = nc({
     onNoMatch: (req, res) => {
         res.status(404).end("Page is not found")
     },
-}).get(async (req, res) => {
+}).post(async (req, res) => {
     await dbConnect()
-
+console.log(req.body)
     await User.findByIdAndDelete(req.body.id)
     res.status(200).json({ success: true, msg: 'User deleted' })
 })

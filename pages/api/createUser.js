@@ -15,7 +15,8 @@ const handler = nc({
 
   await dbConnect();
 
-  const existingUser = User.findOne({ username: username });
+  const existingUser = await User.findOne({ username: username });
+
   if (!existingUser) {
     const user = new User({
       firstName,

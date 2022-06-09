@@ -11,17 +11,33 @@ const handler = nc({
     res.status(404).end('Page is not found');
   }
 }).post(async (req, res) => {
-  const { firstName, lastName, oldUsername, role, username } = req.body;
-
+  const { userId, firstName, lastName, role, username } = req.body;
   await dbConnect();
 
-  const user = new User({
-    firstName,
-    lastName,
-    username,
-    role
+  let filteredBody = {};
+
+  if (firstName) {
+    filteredBody['firstName'] = firstName;
+  }
+
+  if (lastName) {
+    filteredBody['lastName'] = lastName;
+  }
+
+  if (username) {
+    filteredBody['username'] = username;
+  }
+
+  if (role) {
+    filteredBody['role'] = role;
+  }
+
+  const updatedUser = await User.findByIdAndUpdate(userId, filteredBody, {
+    multi: false,
+    runValidators: true,
+    omitUndefined: true
   });
-  await user.save();
+  console.log(updatedUser);
   res.status(200).json({ success: true });
 });
 export default handler;

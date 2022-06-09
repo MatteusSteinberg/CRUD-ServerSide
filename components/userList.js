@@ -30,7 +30,7 @@ export default function UserList() {
       });
       if (res.data.success) {
         const newUser = users.filter((el) => el._id !== id);
-        setUsers(newUser, 'hej');
+        setUsers(newUser);
       }
     } catch (err) {
       console.error(err);

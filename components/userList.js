@@ -31,7 +31,6 @@ export default function UserList() {
       if (res.data.success) {
         const newUser = users.filter((el) => el._id !== id);
         setUsers(newUser);
-        console.log(users);
       }
     } catch (err) {
       console.error(err);
